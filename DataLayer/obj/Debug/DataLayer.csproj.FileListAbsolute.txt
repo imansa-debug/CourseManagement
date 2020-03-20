@@ -1,0 +1,11 @@
+F:\Projects\C#projects\Coursemanagement2\CourseManagement2\DataLayer\bin\Debug\DataLayer.dll.config
+F:\Projects\C#projects\Coursemanagement2\CourseManagement2\DataLayer\bin\Debug\DataLayer.dll
+F:\Projects\C#projects\Coursemanagement2\CourseManagement2\DataLayer\bin\Debug\DataLayer.pdb
+F:\Projects\C#projects\Coursemanagement2\CourseManagement2\DataLayer\bin\Debug\EntityFramework.dll
+F:\Projects\C#projects\Coursemanagement2\CourseManagement2\DataLayer\bin\Debug\EntityFramework.SqlServer.dll
+F:\Projects\C#projects\Coursemanagement2\CourseManagement2\DataLayer\bin\Debug\EntityFramework.xml
+F:\Projects\C#projects\Coursemanagement2\CourseManagement2\DataLayer\bin\Debug\EntityFramework.SqlServer.xml
+F:\Projects\C#projects\Coursemanagement2\CourseManagement2\DataLayer\obj\Debug\DataLayer.csprojAssemblyReference.cache
+F:\Projects\C#projects\Coursemanagement2\CourseManagement2\DataLayer\obj\Debug\DataLayer.csproj.CopyComplete
+F:\Projects\C#projects\Coursemanagement2\CourseManagement2\DataLayer\obj\Debug\DataLayer.dll
+F:\Projects\C#projects\Coursemanagement2\CourseManagement2\DataLayer\obj\Debug\DataLayer.pdb
