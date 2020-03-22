@@ -1,0 +1,31 @@
+﻿@model DataLayer.Article
+
+
+<div class="post-thumb">
+    <img src="~/Images/@Model.Image" class="img-fluid" alt="">
+</div>
+<div class="post-meta">
+    <h1 class="article-title">
+        @Model.Name
+    </h1>
+    <ul>
+        <li>
+            <span class="ion-ios-person"></span>
+            <a href="#">@Model.Author</a>
+        </li>
+        <li>
+            <span class="ion-pricetag"></span>
+            <a href="#">طراح وب</a>
+        </li>
+        <li>
+            <span class="ion-chatbox"></span>
+            <a href="#">14</a>
+        </li>
+    </ul>
+</div>
+<div class="article-content">
+   <p>
+       @Model.Text
+   </p>
+</div>
+

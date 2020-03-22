@@ -1,0 +1,23 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated) {
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" })) {
+        @Html.AntiForgeryToken()
+
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+       <a  href="/Manage/Index" class="btn btn-outline-warning" style="padding-right:2px">سلام  @User.Identity.GetUserName()  !</a>
+
+        </li>
+        <li title="مدیریت حساب کاربری" style="margin-right:2px"><a  href="javascript:document.getElementById('logoutForm').submit()" class="btn btn-danger"><i class="fa fa-sign-out"></i><text style="padding-right:2px">خروج </text> </a></li>
+    </ul>
+    }
+}
+else {
+<ul class="nav navbar-nav navbar-left pull-left">
+    <li><a style="width:100px" href="/Account/Register" class="btn btn-success"><i class="fa fa-plus"></i><text style="padding-right:2px">ثبت نام </text></a></li>
+     <li><a style="margin-right:2px;width:100px" href="/Account/login" class="btn btn-primary"><i class="fa fa-sign-in"></i><text style="padding-right:2px">ورود </text></a></li>
+
+
+
+</ul>
+}
