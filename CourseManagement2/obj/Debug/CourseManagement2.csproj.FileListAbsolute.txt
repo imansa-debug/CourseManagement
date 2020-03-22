@@ -108,3 +108,5 @@ F:\Projects\C#projects\Coursemanagement2\CourseManagement2\CourseManagement2\obj
 F:\Projects\C#projects\Coursemanagement2\CourseManagement2\CourseManagement2\bin\DataLayer.dll
 F:\Projects\C#projects\Coursemanagement2\CourseManagement2\CourseManagement2\bin\DataLayer.pdb
 F:\Projects\C#projects\Coursemanagement2\CourseManagement2\CourseManagement2\bin\DataLayer.dll.config
+F:\Projects\C#projects\Coursemanagement2\CourseManagement2\CourseManagement2\bin\Utility.dll
+F:\Projects\C#projects\Coursemanagement2\CourseManagement2\CourseManagement2\bin\Utility.pdb

@@ -1,0 +1,5 @@
+F:\Projects\C#projects\Coursemanagement2\CourseManagement2\Utility\bin\Debug\Utility.dll
+F:\Projects\C#projects\Coursemanagement2\CourseManagement2\Utility\bin\Debug\Utility.pdb
+F:\Projects\C#projects\Coursemanagement2\CourseManagement2\Utility\obj\Debug\Utility.csprojAssemblyReference.cache
+F:\Projects\C#projects\Coursemanagement2\CourseManagement2\Utility\obj\Debug\Utility.dll
+F:\Projects\C#projects\Coursemanagement2\CourseManagement2\Utility\obj\Debug\Utility.pdb

@@ -1,4 +1,5 @@
 ﻿@model List<DataLayer.Article>
+@using Utility;
     @{ 
         List<DataLayer.ArticleGroupRelation> articleGroupRelations = ViewBag.ArticleGroup;
     }
@@ -35,7 +36,7 @@
                             </a>
                         </div>
                         <div class="post-date">
-                            <span class="ion-ios-clock-outline"></span> 10 دقیقه
+                            <span class="ion-ios-clock-outline"></span> @ShamsiDate.DateDiffrence(DateTime.Now,item.CreateDate)
                         </div>
                     </div>
                 </div>

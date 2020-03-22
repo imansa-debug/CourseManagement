@@ -451,6 +451,10 @@
       <Project>{efa87aa5-36f3-4aa3-a792-c56205a6e957}</Project>
       <Name>DataLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Utility\Utility.csproj">
+      <Project>{06a6c9d0-fa8b-44da-b235-1703d5864002}</Project>
+      <Name>Utility</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
