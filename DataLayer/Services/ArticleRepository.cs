@@ -13,17 +13,17 @@ namespace DataLayer.Services
         {
             db = _context;
         }
-        public List<Article> GetAll()
+        
+
+       public async Task<List<Article>> GetAll()
         {
-            return db.Article.ToList();
+            return await Task.Run(() => db.Article.ToList());
+            
         }
 
-
-        public Article GetById(int id)
+       public async Task<Article> GetById(int id)
         {
-            return db.Article.Find(id);
+            return await Task.Run(() => db.Article.FindAsync(id));
         }
-
-      
     }
 }

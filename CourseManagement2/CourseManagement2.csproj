@@ -149,6 +149,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Content\css\bootstrap-rtl.min.css" />
+    <Content Include="Areas\Admin\Content\css\bootstrap.css" />
+    <Content Include="Areas\Admin\Content\css\bootstrap.min.css" />
+    <Content Include="Areas\Admin\Content\css\dataTable.css" />
+    <Content Include="Areas\Admin\Content\css\fontiran.css" />
+    <Content Include="Areas\Admin\Content\css\fontstyle.css" />
+    <Content Include="Areas\Admin\Content\img\3.jpg" />
+    <Content Include="Areas\Admin\Content\img\brand.gif" />
+    <Content Include="Areas\Admin\Content\img\client-1.jpg" />
+    <Content Include="Areas\Admin\Content\img\client-2.jpg" />
+    <Content Include="Areas\Admin\Content\img\client-3.jpg" />
+    <Content Include="Areas\Admin\Content\img\sidebar.jpg" />
+    <Content Include="Areas\Admin\Content\index.html" />
+    <Content Include="Areas\Admin\Content\js\bootstrap.js" />
+    <Content Include="Areas\Admin\Content\js\dataTable.js" />
+    <Content Include="Areas\Admin\Content\js\jquery-3.3.1.min.js" />
+    <Content Include="Areas\Admin\Content\js\popper.js" />
+    <Content Include="Areas\Admin\Content\js\script.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -346,9 +364,38 @@
     <Content Include="Content\lib\owlcarousel\LICENSE" />
     <Content Include="Content\lib\popper\popper.min.js.map.json" />
     <Content Include="Content\lib\typed\typed.min.js.map" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Articles\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Articles\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Articles\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Articles\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Articles\Index.cshtml" />
+    <Content Include="Areas\Admin\Content\fonts\eot\IRANSansWeb.eot" />
+    <Content Include="Areas\Admin\Content\fonts\eot\IRANSansWeb_Bold.eot" />
+    <Content Include="Areas\Admin\Content\fonts\eot\IRANSansWeb_Light.eot" />
+    <Content Include="Areas\Admin\Content\fonts\eot\IRANSansWeb_Medium.eot" />
+    <Content Include="Areas\Admin\Content\fonts\eot\IRANSansWeb_UltraLight.eot" />
+    <Content Include="Areas\Admin\Content\fonts\ttf\IRANSansWeb.ttf" />
+    <Content Include="Areas\Admin\Content\fonts\ttf\IRANSansWeb_Bold.ttf" />
+    <Content Include="Areas\Admin\Content\fonts\ttf\IRANSansWeb_Light.ttf" />
+    <Content Include="Areas\Admin\Content\fonts\ttf\IRANSansWeb_Medium.ttf" />
+    <Content Include="Areas\Admin\Content\fonts\ttf\IRANSansWeb_UltraLight.ttf" />
+    <Content Include="Areas\Admin\Content\fonts\woff2\IRANSansWeb.woff2" />
+    <Content Include="Areas\Admin\Content\fonts\woff2\IRANSansWeb_Bold.woff2" />
+    <Content Include="Areas\Admin\Content\fonts\woff2\IRANSansWeb_Light.woff2" />
+    <Content Include="Areas\Admin\Content\fonts\woff2\IRANSansWeb_Medium.woff2" />
+    <Content Include="Areas\Admin\Content\fonts\woff2\IRANSansWeb_UltraLight.woff2" />
+    <Content Include="Areas\Admin\Content\fonts\woff\IRANSansWeb.woff" />
+    <Content Include="Areas\Admin\Content\fonts\woff\IRANSansWeb_Bold.woff" />
+    <Content Include="Areas\Admin\Content\fonts\woff\IRANSansWeb_Light.woff" />
+    <Content Include="Areas\Admin\Content\fonts\woff\IRANSansWeb_Medium.woff" />
+    <Content Include="Areas\Admin\Content\fonts\woff\IRANSansWeb_UltraLight.woff" />
+    <Content Include="Areas\Admin\Views\Shared\_DefaultAdminLayout.cshtml" />
+    <Content Include="Areas\Admin\Content\js\jquery-3.3.1.js" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Images\IC.jpg" />
+    <Content Include="Images\images.jpg" />
     <Content Include="Images\rel.jpg" />
     <Content Include="Images\Thumb\IC.jpg" />
     <Content Include="Images\Thumb\Map.jpg" />
@@ -411,6 +458,8 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\ArticlesController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ArticleController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -445,6 +494,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Data\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataLayer\DataLayer.csproj">

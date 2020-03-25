@@ -8,8 +8,8 @@ namespace DataLayer.Repositories
 {
     public interface IArticleRepository
     {
-        List<Article> GetAll();
-        Article GetById(int id);
+        Task<List<Article>> GetAll();
+        Task<Article> GetById(int id);
 
     }
 }

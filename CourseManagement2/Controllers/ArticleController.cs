@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using DataLayer;
@@ -11,18 +12,17 @@ namespace CourseManagement2.Controllers
     {
         // GET: Article
         UnitOfWork dbcontext = new UnitOfWork();
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
 
-            List<Article> articles = dbcontext.ArticleRepository.GetAll();
-            ViewBag.ArticleGroup = dbcontext.ArticleGroupRelationRepository.GetAll();
-
+            List<Article> articles =await dbcontext.ArticleRepository.GetAll();
+            ViewBag.ArticleGroup = await dbcontext.ArticleGroupRelationRepository.GetAll();
             return View(articles);
         }
 
-        public ActionResult ArticlePage(int id)
+        public async Task<ActionResult> ArticlePage(int id)
         {
-            Article article = dbcontext.ArticleRepository.GetById(id);
+            Article article =await dbcontext.ArticleRepository.GetById(id);
             ViewBag.article = article;
             return View(article);
         }

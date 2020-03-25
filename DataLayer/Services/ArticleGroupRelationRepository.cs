@@ -12,9 +12,12 @@ namespace DataLayer.Services
         {
             db = _context;
         }
-        public List<ArticleGroupRelation> GetAll()
+       
+
+        public async Task<List<ArticleGroupRelation>> GetAll()
         {
-            return db.ArticleGroupRelation.ToList();
+            
+           return await Task.Run(() => db.ArticleGroupRelation.ToList());
         }
     }
 }

@@ -51,6 +51,7 @@ F:\Projects\C#projects\Coursemanagement2\CourseManagement2\CourseManagement2\bin
 F:\Projects\C#projects\Coursemanagement2\CourseManagement2\CourseManagement2\bin\roslyn\VBCSCompiler.exe
 F:\Projects\C#projects\Coursemanagement2\CourseManagement2\CourseManagement2\bin\roslyn\VBCSCompiler.exe.config
 F:\Projects\C#projects\Coursemanagement2\CourseManagement2\CourseManagement2\bin\Antlr3.Runtime.dll
+F:\Projects\C#projects\Coursemanagement2\CourseManagement2\CourseManagement2\bin\DataLayer.dll
 F:\Projects\C#projects\Coursemanagement2\CourseManagement2\CourseManagement2\bin\EntityFramework.dll
 F:\Projects\C#projects\Coursemanagement2\CourseManagement2\CourseManagement2\bin\EntityFramework.SqlServer.dll
 F:\Projects\C#projects\Coursemanagement2\CourseManagement2\CourseManagement2\bin\Microsoft.AspNet.Identity.Core.dll
@@ -76,7 +77,11 @@ F:\Projects\C#projects\Coursemanagement2\CourseManagement2\CourseManagement2\bin
 F:\Projects\C#projects\Coursemanagement2\CourseManagement2\CourseManagement2\bin\System.Web.Webpages.Deployment.dll
 F:\Projects\C#projects\Coursemanagement2\CourseManagement2\CourseManagement2\bin\System.Web.Webpages.dll
 F:\Projects\C#projects\Coursemanagement2\CourseManagement2\CourseManagement2\bin\System.Web.Webpages.Razor.dll
+F:\Projects\C#projects\Coursemanagement2\CourseManagement2\CourseManagement2\bin\Utility.dll
 F:\Projects\C#projects\Coursemanagement2\CourseManagement2\CourseManagement2\bin\WebGrease.dll
+F:\Projects\C#projects\Coursemanagement2\CourseManagement2\CourseManagement2\bin\DataLayer.pdb
+F:\Projects\C#projects\Coursemanagement2\CourseManagement2\CourseManagement2\bin\DataLayer.dll.config
+F:\Projects\C#projects\Coursemanagement2\CourseManagement2\CourseManagement2\bin\Utility.pdb
 F:\Projects\C#projects\Coursemanagement2\CourseManagement2\CourseManagement2\bin\Antlr3.Runtime.pdb
 F:\Projects\C#projects\Coursemanagement2\CourseManagement2\CourseManagement2\bin\EntityFramework.xml
 F:\Projects\C#projects\Coursemanagement2\CourseManagement2\CourseManagement2\bin\EntityFramework.SqlServer.xml
@@ -105,8 +110,3 @@ F:\Projects\C#projects\Coursemanagement2\CourseManagement2\CourseManagement2\obj
 F:\Projects\C#projects\Coursemanagement2\CourseManagement2\CourseManagement2\obj\Debug\CourseManagement2.csproj.CopyComplete
 F:\Projects\C#projects\Coursemanagement2\CourseManagement2\CourseManagement2\obj\Debug\CourseManagement2.dll
 F:\Projects\C#projects\Coursemanagement2\CourseManagement2\CourseManagement2\obj\Debug\CourseManagement2.pdb
-F:\Projects\C#projects\Coursemanagement2\CourseManagement2\CourseManagement2\bin\DataLayer.dll
-F:\Projects\C#projects\Coursemanagement2\CourseManagement2\CourseManagement2\bin\DataLayer.pdb
-F:\Projects\C#projects\Coursemanagement2\CourseManagement2\CourseManagement2\bin\DataLayer.dll.config
-F:\Projects\C#projects\Coursemanagement2\CourseManagement2\CourseManagement2\bin\Utility.dll
-F:\Projects\C#projects\Coursemanagement2\CourseManagement2\CourseManagement2\bin\Utility.pdb

@@ -60,6 +60,7 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\UnitOfWork.cs" />
+    <Compile Include="MetaDataClasses\Article_MetaData.cs" />
     <Compile Include="Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

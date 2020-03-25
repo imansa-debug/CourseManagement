@@ -8,6 +8,6 @@ namespace DataLayer.Repositories
 {
     public interface IArticleGroupRelationRepository
     {
-        List<ArticleGroupRelation> GetAll();
+       Task<List<ArticleGroupRelation>>  GetAll();
     }
 }
