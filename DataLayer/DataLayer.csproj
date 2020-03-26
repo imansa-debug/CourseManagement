@@ -53,9 +53,6 @@
     <Compile Include="Article.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="ArticleGroupRelation.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="ArticleGroups.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -77,9 +74,9 @@
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\IArticleGroupRelationRepository.cs" />
+    <Compile Include="Repositories\IArticleGroupRepository.cs" />
     <Compile Include="Repositories\IArticleRepository.cs" />
-    <Compile Include="Services\ArticleGroupRelationRepository.cs" />
+    <Compile Include="Services\ArticleGroupRepository.cs" />
     <Compile Include="Services\ArticleRepository.cs" />
     <Compile Include="ViewModel\ArticleGroupRelationViewModel.cs" />
   </ItemGroup>

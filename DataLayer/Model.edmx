@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CourseManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="CourseManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Article">
           <Key>
             <PropertyRef Name="ID" />
@@ -17,14 +17,7 @@
           <Property Name="Video" Type="nvarchar" MaxLength="50" />
           <Property Name="Author" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="CreateDate" Type="datetime" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ArticleGroupRelation">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ArticleID" Type="int" Nullable="false" />
-          <Property Name="ArticleGroupID" Type="int" Nullable="false" />
+          <Property Name="GroupID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="ArticleGroups">
           <Key>
@@ -33,117 +26,73 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="GroupName" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <Association Name="FK_ArticleGroupRelation_Article">
-          <End Role="Article" Type="Self.Article" Multiplicity="1" />
-          <End Role="ArticleGroupRelation" Type="Self.ArticleGroupRelation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Article">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="ArticleGroupRelation">
-              <PropertyRef Name="ArticleID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ArticleGroupRelation_ArticleGroups">
+        <Association Name="FK_Article_ArticleGroups">
           <End Role="ArticleGroups" Type="Self.ArticleGroups" Multiplicity="1" />
-          <End Role="ArticleGroupRelation" Type="Self.ArticleGroupRelation" Multiplicity="*" />
+          <End Role="Article" Type="Self.Article" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ArticleGroups">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="ArticleGroupRelation">
-              <PropertyRef Name="ArticleGroupID" />
+            <Dependent Role="Article">
+              <PropertyRef Name="GroupID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="CourseManagementModelStoreContainer">
           <EntitySet Name="Article" EntityType="Self.Article" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ArticleGroupRelation" EntityType="Self.ArticleGroupRelation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ArticleGroups" EntityType="Self.ArticleGroups" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_ArticleGroupRelation_Article" Association="Self.FK_ArticleGroupRelation_Article">
-            <End Role="Article" EntitySet="Article" />
-            <End Role="ArticleGroupRelation" EntitySet="ArticleGroupRelation" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ArticleGroupRelation_ArticleGroups" Association="Self.FK_ArticleGroupRelation_ArticleGroups">
+          <AssociationSet Name="FK_Article_ArticleGroups" Association="Self.FK_Article_ArticleGroups">
             <End Role="ArticleGroups" EntitySet="ArticleGroups" />
-            <End Role="ArticleGroupRelation" EntitySet="ArticleGroupRelation" />
+            <End Role="Article" EntitySet="Article" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CourseManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="CourseManagementEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Article" EntityType="CourseManagementModel.Article" />
+          <EntitySet Name="ArticleGroups" EntityType="CourseManagementModel.ArticleGroups" />
+          <AssociationSet Name="FK_Article_ArticleGroups" Association="CourseManagementModel.FK_Article_ArticleGroups">
+            <End Role="ArticleGroups" EntitySet="ArticleGroups" />
+            <End Role="Article" EntitySet="Article" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="Article">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Image" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Video" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Author" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="ArticleGroupRelation" Relationship="Self.FK_ArticleGroupRelation_Article" FromRole="Article" ToRole="ArticleGroupRelation" />
-        </EntityType>
-        <EntityType Name="ArticleGroupRelation">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ArticleID" Type="Int32" Nullable="false" />
-          <Property Name="ArticleGroupID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Article" Relationship="Self.FK_ArticleGroupRelation_Article" FromRole="ArticleGroupRelation" ToRole="Article" />
-          <NavigationProperty Name="ArticleGroups" Relationship="Self.FK_ArticleGroupRelation_ArticleGroups" FromRole="ArticleGroupRelation" ToRole="ArticleGroups" />
+          <Property Name="GroupID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ArticleGroups" Relationship="CourseManagementModel.FK_Article_ArticleGroups" FromRole="Article" ToRole="ArticleGroups" />
         </EntityType>
         <EntityType Name="ArticleGroups">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="GroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="ArticleGroupRelation" Relationship="Self.FK_ArticleGroupRelation_ArticleGroups" FromRole="ArticleGroups" ToRole="ArticleGroupRelation" />
+          <Property Name="GroupName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Article" Relationship="CourseManagementModel.FK_Article_ArticleGroups" FromRole="ArticleGroups" ToRole="Article" />
         </EntityType>
-        <Association Name="FK_ArticleGroupRelation_Article">
-          <End Role="Article" Type="Self.Article" Multiplicity="1" />
-          <End Role="ArticleGroupRelation" Type="Self.ArticleGroupRelation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Article">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="ArticleGroupRelation">
-              <PropertyRef Name="ArticleID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ArticleGroupRelation_ArticleGroups">
-          <End Role="ArticleGroups" Type="Self.ArticleGroups" Multiplicity="1" />
-          <End Role="ArticleGroupRelation" Type="Self.ArticleGroupRelation" Multiplicity="*" />
+        <Association Name="FK_Article_ArticleGroups">
+          <End Type="CourseManagementModel.ArticleGroups" Role="ArticleGroups" Multiplicity="1" />
+          <End Type="CourseManagementModel.Article" Role="Article" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ArticleGroups">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="ArticleGroupRelation">
-              <PropertyRef Name="ArticleGroupID" />
+            <Dependent Role="Article">
+              <PropertyRef Name="GroupID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="CourseManagementEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Article" EntityType="Self.Article" />
-          <EntitySet Name="ArticleGroupRelation" EntityType="Self.ArticleGroupRelation" />
-          <EntitySet Name="ArticleGroups" EntityType="Self.ArticleGroups" />
-          <AssociationSet Name="FK_ArticleGroupRelation_Article" Association="Self.FK_ArticleGroupRelation_Article">
-            <End Role="Article" EntitySet="Article" />
-            <End Role="ArticleGroupRelation" EntitySet="ArticleGroupRelation" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ArticleGroupRelation_ArticleGroups" Association="Self.FK_ArticleGroupRelation_ArticleGroups">
-            <End Role="ArticleGroups" EntitySet="ArticleGroups" />
-            <End Role="ArticleGroupRelation" EntitySet="ArticleGroupRelation" />
-          </AssociationSet>
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -153,31 +102,23 @@
           <EntitySetMapping Name="Article">
             <EntityTypeMapping TypeName="CourseManagementModel.Article">
               <MappingFragment StoreEntitySet="Article">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Text" ColumnName="Text" />
-                <ScalarProperty Name="Image" ColumnName="Image" />
-                <ScalarProperty Name="Video" ColumnName="Video" />
-                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
                 <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ArticleGroupRelation">
-            <EntityTypeMapping TypeName="CourseManagementModel.ArticleGroupRelation">
-              <MappingFragment StoreEntitySet="ArticleGroupRelation">
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="Video" ColumnName="Video" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="ArticleID" ColumnName="ArticleID" />
-                <ScalarProperty Name="ArticleGroupID" ColumnName="ArticleGroupID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ArticleGroups">
             <EntityTypeMapping TypeName="CourseManagementModel.ArticleGroups">
               <MappingFragment StoreEntitySet="ArticleGroups">
-                <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

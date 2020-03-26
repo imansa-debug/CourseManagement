@@ -14,12 +14,6 @@ namespace DataLayer
     
     public partial class Article
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Article()
-        {
-            this.ArticleGroupRelation = new HashSet<ArticleGroupRelation>();
-        }
-    
         public int ID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
@@ -28,8 +22,8 @@ namespace DataLayer
         public string Video { get; set; }
         public string Author { get; set; }
         public System.DateTime CreateDate { get; set; }
+        public int GroupID { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ArticleGroupRelation> ArticleGroupRelation { get; set; }
+        public virtual ArticleGroups ArticleGroups { get; set; }
     }
 }

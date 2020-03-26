@@ -8,6 +8,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DataLayer;
+using Utility;
+using System.IO;
 
 namespace CourseManagement2.Areas.Admin.Controllers
 {
@@ -39,23 +41,56 @@ namespace CourseManagement2.Areas.Admin.Controllers
         // GET: Admin/Articles/Create
         public ActionResult Create()
         {
+            List<SelectListItem> groupList = new List<SelectListItem>();
+            foreach (var group in db.ArticleGroups.ToList())
+            {
+                groupList.Add(new SelectListItem { Text = group.GroupName, Value = group.ID.ToString() });
+            }
+            ViewBag.articlegroup = groupList;
             return View();
         }
 
         // POST: Admin/Articles/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        [HttpPost, ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "ID,Name,Description,Text,Image,Video,Author,CreateDate")] Article article)
+        public async Task<ActionResult> Create( Article article, HttpPostedFileBase imageProduct,HttpPostedFileBase videoProduct)
         {
             if (ModelState.IsValid)
             {
+                article.Image = "images.jpg";
+                if (imageProduct != null && imageProduct.IsImage())
+                {
+                    article.Image = Guid.NewGuid().ToString() + Path.GetExtension(imageProduct.FileName);
+                    imageProduct.SaveAs(Server.MapPath("/Images/Articles/" + article.Image));
+                    ImageResizer img = new ImageResizer();
+                    img.Resize(Server.MapPath("/Images/Articles/" + article.Image),
+                        Server.MapPath("/Images/Articles/Thumb/" + article.Image));
+
+                }
+               
+                if (videoProduct != null)
+                {
+                    article.Video = Guid.NewGuid().ToString() + Path.GetExtension(videoProduct.FileName);
+                    videoProduct.SaveAs(Server.MapPath("/Videos/" + article.Video));
+                }
+
+
+
+                article.CreateDate = DateTime.Now;
+                article.Author = "ایمان صفری";
+
                 db.Article.Add(article);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-
+            List<SelectListItem> groupList = new List<SelectListItem>();
+            foreach (var group in db.ArticleGroups.ToList())
+            {
+                groupList.Add(new SelectListItem { Text = group.GroupName, Value = group.ID.ToString() });
+            }
+            ViewBag.articlegroup = groupList;
             return View(article);
         }
 

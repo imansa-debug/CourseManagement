@@ -25,23 +25,24 @@ namespace DataLayer.Context
             }
         }
 
-        private IArticleGroupRelationRepository _articleGroupRelationRepository;
-        public IArticleGroupRelationRepository ArticleGroupRelationRepository
+       
+        private IArticleGroupRepository _articleGroupRepository;
+        public IArticleGroupRepository ArticleGroupRepository
         {
             get
             {
-                if (_articleGroupRelationRepository == null)
+                if (_articleGroupRepository == null)
                 {
-                    _articleGroupRelationRepository = new ArticleGroupRelationRepository(db);
+                    _articleGroupRepository = new ArticleGroupRepository(db);
                 }
 
-                return _articleGroupRelationRepository;
+                return _articleGroupRepository;
             }
         }
 
         public void Save()
         {
-            db.SaveChanges();
+            db.SaveChangesAsync();
         }
 
         public void Dispose()

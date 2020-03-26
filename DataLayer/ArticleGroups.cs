@@ -17,13 +17,13 @@ namespace DataLayer
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ArticleGroups()
         {
-            this.ArticleGroupRelation = new HashSet<ArticleGroupRelation>();
+            this.Article = new HashSet<Article>();
         }
     
         public int ID { get; set; }
         public string GroupName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ArticleGroupRelation> ArticleGroupRelation { get; set; }
+        public virtual ICollection<Article> Article { get; set; }
     }
 }

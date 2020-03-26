@@ -5,11 +5,9 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="e1d16f3f96d24294a3a7a5dc86be03a9" Name="Diagram1">
-        <EntityTypeShape EntityType="CourseManagementModel.Article" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="CourseManagementModel.ArticleGroupRelation" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="CourseManagementModel.ArticleGroups" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
-        <AssociationConnector Association="CourseManagementModel.FK_ArticleGroupRelation_Article" ManuallyRouted="false" />
-        <AssociationConnector Association="CourseManagementModel.FK_ArticleGroupRelation_ArticleGroups" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CourseManagementModel.Article" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="CourseManagementModel.ArticleGroups" Width="1.5" PointX="0.625" PointY="1" />
+        <AssociationConnector Association="CourseManagementModel.FK_Article_ArticleGroups" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

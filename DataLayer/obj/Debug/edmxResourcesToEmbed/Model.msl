@@ -4,31 +4,23 @@
     <EntitySetMapping Name="Article">
       <EntityTypeMapping TypeName="CourseManagementModel.Article">
         <MappingFragment StoreEntitySet="Article">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="Text" ColumnName="Text" />
-          <ScalarProperty Name="Image" ColumnName="Image" />
-          <ScalarProperty Name="Video" ColumnName="Video" />
-          <ScalarProperty Name="Author" ColumnName="Author" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
           <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ArticleGroupRelation">
-      <EntityTypeMapping TypeName="CourseManagementModel.ArticleGroupRelation">
-        <MappingFragment StoreEntitySet="ArticleGroupRelation">
+          <ScalarProperty Name="Author" ColumnName="Author" />
+          <ScalarProperty Name="Video" ColumnName="Video" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="ArticleID" ColumnName="ArticleID" />
-          <ScalarProperty Name="ArticleGroupID" ColumnName="ArticleGroupID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ArticleGroups">
       <EntityTypeMapping TypeName="CourseManagementModel.ArticleGroups">
         <MappingFragment StoreEntitySet="ArticleGroups">
-          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

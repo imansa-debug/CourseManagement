@@ -20,7 +20,7 @@ namespace DataLayer
         [MaxLength(ErrorMessage = "تعداد کاراکترهای مجاز برای فیلد{0} 50 عدد است")]
         public string Description { get; set; }
         [Display(Name = "متن مقاله")]
-
+        [DataType(DataType.MultilineText)]
         public string Text { get; set; }
         [Display(Name = "تصویر")]
         public string Image { get; set; }
@@ -32,7 +32,8 @@ namespace DataLayer
         public string Author { get; set; }
         [Display(Name = "تاریخ ایجاد")]
         public System.DateTime CreateDate { get; set; }
-
+        [Display(Name = "گروه مقاله")]
+        public string GroupID { get; set; }
     }
     [MetadataType(typeof(Article_MetaData))]
     public partial class Article

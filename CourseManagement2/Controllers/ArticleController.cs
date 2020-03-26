@@ -16,7 +16,7 @@ namespace CourseManagement2.Controllers
         {
 
             List<Article> articles =await dbcontext.ArticleRepository.GetAll();
-            ViewBag.ArticleGroup = await dbcontext.ArticleGroupRelationRepository.GetAll();
+            ViewBag.ArticleGroup = await dbcontext.ArticleGroupRepository.GetAll();
             return View(articles);
         }
 
