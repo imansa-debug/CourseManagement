@@ -10,27 +10,28 @@ using System.Web.Mvc;
 using DataLayer;
 using Utility;
 using System.IO;
+using DataLayer.Context;
 
 namespace CourseManagement2.Areas.Admin.Controllers
 {
     public class ArticlesController : Controller
     {
-        private CourseManagementEntities db = new CourseManagementEntities();
+        private UnitOfWork db = new UnitOfWork();
 
         // GET: Admin/Articles
         public async Task<ActionResult> Index()
         {
-            return View(await db.Article.ToListAsync());
+            return View(await db.ArticleRepository.GetAll());
         }
 
         // GET: Admin/Articles/Details/5
-        public async Task<ActionResult> Details(int? id)
+        public async Task<ActionResult> Details(int id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Article article = await db.Article.FindAsync(id);
+            Article article = await db.ArticleRepository.GetById(id);
             if (article == null)
             {
                 return HttpNotFound();
@@ -39,10 +40,11 @@ namespace CourseManagement2.Areas.Admin.Controllers
         }
 
         // GET: Admin/Articles/Create
-        public ActionResult Create()
+        public  async Task<ActionResult> Create()
         {
             List<SelectListItem> groupList = new List<SelectListItem>();
-            foreach (var group in db.ArticleGroups.ToList())
+
+            foreach (var group in await db.ArticleGroupRepository.GetAll())
             {
                 groupList.Add(new SelectListItem { Text = group.GroupName, Value = group.ID.ToString() });
             }
@@ -56,7 +58,7 @@ namespace CourseManagement2.Areas.Admin.Controllers
         [HttpPost, ValidateInput(false)]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create( Article article, HttpPostedFileBase imageProduct,HttpPostedFileBase videoProduct)
-        {
+        {   
             if (ModelState.IsValid)
             {
                 article.Image = "images.jpg";
@@ -81,12 +83,12 @@ namespace CourseManagement2.Areas.Admin.Controllers
                 article.CreateDate = DateTime.Now;
                 article.Author = "ایمان صفری";
 
-                db.Article.Add(article);
-                await db.SaveChangesAsync();
+                db.ArticleRepository.AddNew(article);
+                db.Save();
                 return RedirectToAction("Index");
             }
             List<SelectListItem> groupList = new List<SelectListItem>();
-            foreach (var group in db.ArticleGroups.ToList())
+            foreach (var group in db.ArticleGroupRepository.GetAll().Result)
             {
                 groupList.Add(new SelectListItem { Text = group.GroupName, Value = group.ID.ToString() });
             }
@@ -101,11 +103,18 @@ namespace CourseManagement2.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Article article = await db.Article.FindAsync(id);
+            Article article = await db.ArticleRepository.GetById(id);
             if (article == null)
             {
                 return HttpNotFound();
             }
+
+            List<SelectListItem> groupList = new List<SelectListItem>();
+            foreach (var group in await db.ArticleGroupRepository.GetAll())
+            {
+                groupList.Add(new SelectListItem { Text = group.GroupName, Value = group.ID.ToString(),Selected=group.ID==article.GroupID?true:false });
+            }
+            ViewBag.articlegroup = groupList;
             return View(article);
         }
 
@@ -118,8 +127,8 @@ namespace CourseManagement2.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(article).State = EntityState.Modified;
-                await db.SaveChangesAsync();
+                //db.Entry(article).State = EntityState.Modified;
+                //await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
             return View(article);
@@ -132,12 +141,12 @@ namespace CourseManagement2.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Article article = await db.Article.FindAsync(id);
-            if (article == null)
-            {
-                return HttpNotFound();
-            }
-            return View(article);
+            //Article article = await db.Article.FindAsync(id);
+            //if (article == null)
+            //{
+            //    return HttpNotFound();
+            //}
+            return View();
         }
 
         // POST: Admin/Articles/Delete/5
@@ -145,9 +154,9 @@ namespace CourseManagement2.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            Article article = await db.Article.FindAsync(id);
-            db.Article.Remove(article);
-            await db.SaveChangesAsync();
+            //Article article = await db.Article.FindAsync(id);
+            //db.Article.Remove(article);
+            //await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
 

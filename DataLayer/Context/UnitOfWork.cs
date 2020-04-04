@@ -42,7 +42,7 @@ namespace DataLayer.Context
 
         public void Save()
         {
-            db.SaveChangesAsync();
+            db.SaveChanges();
         }
 
         public void Dispose()

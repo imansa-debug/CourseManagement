@@ -37,7 +37,7 @@ namespace Utility
         /// </summary>
         public ImageResizer()
         {
-            MaxX = 300;  MaxY = 200;
+            MaxX = 340;  MaxY = 200;
             TrimImage = false;
             SaveFormat = ImageFormat.Jpeg;
         }
@@ -82,8 +82,10 @@ namespace Utility
                             // Resize (no trim) to keep within maximum dimensions
                             double factor = Math.Min((double)MaxX / (double)origX,
                                 (double)MaxY / (double)origY);
-                            newX = (int)Math.Ceiling((double)origX * factor);
-                            newY = (int)Math.Ceiling((double)origY * factor);
+                            //newX = (int)Math.Ceiling((double)origX * factor);
+                            //newY = (int)Math.Ceiling((double)origY * factor);
+                            newX = 340;
+                            newY = 200;
                         }
                     }
 

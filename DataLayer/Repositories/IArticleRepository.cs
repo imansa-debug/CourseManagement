@@ -9,7 +9,9 @@ namespace DataLayer.Repositories
     public interface IArticleRepository
     {
         Task<List<Article>> GetAll();
-        Task<Article> GetById(int id);
+        Task<Article> GetById(int? id);
+
+        void AddNew(Article article);
 
     }
 }

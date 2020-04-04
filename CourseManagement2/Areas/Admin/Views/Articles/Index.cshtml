@@ -14,8 +14,9 @@
     <title>Index</title>
 </head>
 <body>
-    <p>
-        @Html.ActionLink("Create New", "Create")
+    <p style="text-align:right">
+     
+        <a class="btn btn-success" href="@Url.Action("Create")">افزودن مقاله جدید</a>
     </p>
 
     <table id="example" class="display table table-striped bg-light text-center" style="width:100%">
@@ -56,9 +57,15 @@
                        @item.CreateDate.ToShamsi()
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                        <a title="مشاهده در سایت" class="fas fa-file-alt text-primary fa-lg mr-2" href="/article/articlepage/@item.ID"></a>
+                        <a title="ویرایش" class="fas fa-edit fa-lg text-warning mr-2" href="@Url.Action("Edit",new {id=item.ID})"></a>
+                        <a title="حذف" class="fas fa-trash-alt fa-lg text-danger mr-2" href="@Url.Action("Delete",new {id=item.ID})"></a>
+
+
+
+
+
+
                     </td>
                 </tr>
             }
